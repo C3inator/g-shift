@@ -42,9 +42,102 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile3, function (sprite, location
         . . . . . . . . . . . . . . . . 
         `)
 })
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location) {
+    game.splash("Bonus Level 1", "Cleared!")
+    tiles.setTilemap(tiles.createTilemap(hex`1000100002020202020202020202020202020202020000000000000000000000000000020101010101000000000000000000000201010101010000000000000000000002010101010100000000000000000000020203000000000000000000000000000202000000000000000000000000000002020000000000000000000000000000020200000000000000000000000000000202000000000000000000000000000002020000000000000000000000000000020200000000000000000000000000000202000000000000000000000000000002020000000000000000000000000000020200000000000000000000000000000202020202020202020202020202020202`, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        2 2 2 2 2 . . . . . . . . . . . 
+        2 2 2 2 2 . . . . . . . . . . . 
+        2 2 2 2 2 . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, [myTiles.transparency16,myTiles.tile1,myTiles.tile6,myTiles.tile5], TileScale.Sixteen))
+    mySprite.setPosition(30, 27)
+    mySprite.setVelocity(0, 100)
+    mySprite.ax = 0
+    mySprite.ay = 500
+    controller.moveSprite(mySprite, 100, 0)
+    mySprite.setImage(img`
+        . . . . . . . . . . . . . . . . 
+        . f f f f f f f f f f f f f . . 
+        . f 1 1 1 1 1 1 1 1 1 1 1 f . . 
+        . f 1 1 2 2 2 2 2 2 2 1 1 f . . 
+        . f 1 2 f f f f f f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 2 f 9 f 9 f 9 f 2 1 f . . 
+        . f 1 2 f f 9 9 9 f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 1 2 2 2 2 2 2 2 1 1 f . . 
+        . f 1 1 1 1 1 1 1 1 1 1 1 f . . 
+        . f f f f f f f f f f f f f . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)
+})
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile8, function (sprite, location) {
     game.splash("Level 3", "Cleared!")
-    game.over(true)
+    if (game.ask("Want to play", "the Bonus Levels?")) {
+        tiles.setTilemap(tiles.createTilemap(hex`1000100002020202020202020202020202020202020000000000000000000000000000020200000000000000000000000000000202000000000000000000000000000002020000000000000000000000000003020200000000000000000000010101010102000000000000000000000000000002020000000000000000000000000000020200000000000000000000000000000202000000000000000000000000000002020000000000000000000000000000020200000000000000000000000000000201010100000000000000000000000002010101000000000000000000000000020101010000000000000000000000000201010102020202020202020202020202`, img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . 2 2 2 2 2 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            2 2 2 . . . . . . . . . . . . . 
+            2 2 2 . . . . . . . . . . . . . 
+            2 2 2 . . . . . . . . . . . . . 
+            2 2 2 . . . . . . . . . . . . . 
+            `, [myTiles.transparency16,myTiles.tile1,myTiles.tile6,myTiles.tile4], TileScale.Sixteen))
+        mySprite.setPosition(30, 186)
+        mySprite.setVelocity(0, 100)
+        mySprite.ax = 0
+        mySprite.ay = 500
+        controller.moveSprite(mySprite, 100, 0)
+        mySprite.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . f f f f f f f f f f f f f . . 
+            . f 1 1 1 1 1 1 1 1 1 1 1 f . . 
+            . f 1 1 2 2 2 2 2 2 2 1 1 f . . 
+            . f 1 2 f f f f f f f 2 1 f . . 
+            . f 1 2 f f f 9 f f f 2 1 f . . 
+            . f 1 2 f f f 9 f f f 2 1 f . . 
+            . f 1 2 f f f 9 f f f 2 1 f . . 
+            . f 1 2 f 9 f 9 f 9 f 2 1 f . . 
+            . f 1 2 f f 9 9 9 f f 2 1 f . . 
+            . f 1 2 f f f 9 f f f 2 1 f . . 
+            . f 1 1 2 2 2 2 2 2 2 1 1 f . . 
+            . f 1 1 1 1 1 1 1 1 1 1 1 f . . 
+            . f f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+    } else {
+        game.over(true)
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile9, function (sprite, location) {
+    game.splash("Bonus Level 3", "Cleared!")
+    game.splash("Truly, you are", "The Greatest of Gamers!")
+    game.over(true, effects.starField)
 })
 controller.combos.attachCombo("a+d", function () {
     controller.moveSprite(mySprite, 100, 0)
@@ -164,6 +257,50 @@ controller.combos.attachCombo("a+l", function () {
     mySprite.setVelocity(-1000, 0)
     mySprite.ax = -500
     mySprite.ay = 0
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
+    game.splash("Bonus Level 2", "Cleared!")
+    tiles.setTilemap(tiles.createTilemap(hex`1000100002020202020202020202020202020202020000000000000000000000000000020200000000000000000000000000000202000000000000000000000000000002020000000000000000000000000000020200000000000000000000000000000202000000000000010000000000000002020000000000000100000000000000020200000000000001000000000000000202000000000000010300000000000002020000000000000100000000000000020200000000000001000000000000000202000000000000010000000000000002020000000000000100000000000000020101010000000000000000000000000201010102020202020202020202020202`, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        . . . . . . . 2 . . . . . . . . 
+        2 2 2 . . . . . . . . . . . . . 
+        2 2 2 . . . . . . . . . . . . . 
+        `, [myTiles.transparency16,myTiles.tile1,myTiles.tile6,myTiles.tile9], TileScale.Sixteen))
+    mySprite.setPosition(30, 218)
+    mySprite.setVelocity(0, 100)
+    mySprite.ax = 0
+    mySprite.ay = 500
+    controller.moveSprite(mySprite, 100, 0)
+    mySprite.setImage(img`
+        . . . . . . . . . . . . . . . . 
+        . f f f f f f f f f f f f f . . 
+        . f 1 1 1 1 1 1 1 1 1 1 1 f . . 
+        . f 1 1 2 2 2 2 2 2 2 1 1 f . . 
+        . f 1 2 f f f f f f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 2 f 9 f 9 f 9 f 2 1 f . . 
+        . f 1 2 f f 9 9 9 f f 2 1 f . . 
+        . f 1 2 f f f 9 f f f 2 1 f . . 
+        . f 1 1 2 2 2 2 2 2 2 1 1 f . . 
+        . f 1 1 1 1 1 1 1 1 1 1 1 f . . 
+        . f f f f f f f f f f f f f . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)
 })
 controller.combos.attachCombo("a+u", function () {
     controller.moveSprite(mySprite, 100, 0)
