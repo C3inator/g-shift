@@ -143,6 +143,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile9, function (sprite, location
 })
 controller.combos.attachCombo("a+d", function () {
     controller.moveSprite(mySprite, 100, 0)
+    mySprite.startEffect(effects.rings, 500)
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
         . f f f f f f f f f f f f f . . 
@@ -214,6 +215,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location
 })
 controller.combos.attachCombo("a+r", function () {
     controller.moveSprite(mySprite, 0, 100)
+    mySprite.startEffect(effects.rings, 500)
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
         . f f f f f f f f f f f f f . . 
@@ -238,6 +240,7 @@ controller.combos.attachCombo("a+r", function () {
 })
 controller.combos.attachCombo("a+l", function () {
     controller.moveSprite(mySprite, 0, 100)
+    mySprite.startEffect(effects.rings, 500)
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
         . f f f f f f f f f f f f f . . 
@@ -306,6 +309,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location
 })
 controller.combos.attachCombo("a+u", function () {
     controller.moveSprite(mySprite, 100, 0)
+    mySprite.startEffect(effects.rings, 500)
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
         . f f f f f f f f f f f f f . . 
